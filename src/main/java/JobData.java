@@ -104,6 +104,7 @@ public class JobData {
                     if (Arrays.asList(search).contains(row)) {
                     }
                     search.add(row);
+                    break;
                 }
             }
         }
