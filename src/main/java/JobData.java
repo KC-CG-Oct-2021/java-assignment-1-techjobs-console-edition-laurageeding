@@ -95,20 +95,17 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        ArrayList<HashMap<String, String>> allJobs = JobData.findAll();
-        ArrayList<HashMap<String, String>> search = new ArrayList<>();
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-            for (Map.Entry<String, String> column : row.entrySet()) {
-                if (column.getValue().toLowerCase().contains(value)) {
-                    if (Arrays.asList(search).contains(row)) {
-                    }
-                    search.add(row);
+            for (String data : row.values()) {
+                if (data.toLowerCase().contains(value)) {
+                    jobs.add(row);
                     break;
                 }
             }
         }
-        return search;
+        return jobs;
     }
 
 
